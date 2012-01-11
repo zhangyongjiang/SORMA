@@ -1,0 +1,26 @@
+SORMA - SQLite based Android Content Provider Solution
+Copyright (c) 2008-2011, Open & Green Inc.
+All rights reserved.
+info@gaoshin.com
+
+Open Source License
+------------------------------------------------------------------------------------------
+This version of SORMA is licensed under the terms of the Open Source GPL 3.0 license. 
+
+http://www.gnu.org/licenses/gpl.html
+
+There are several FLOSS exceptions available for use with this release for
+open source applications that are distributed under a license other than GPL.
+
+ * Open Source License Exception for Applications
+
+ * Open Source License Exception for Development
+
+Alternate Licenses are available for an alternate download of SORMA.
+
+--
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, 
+AND NON-INFRINGEMENT OF THIRD-PARTY INTELLECTUAL PROPERTY RIGHTS.  
+See the GNU General Public License for more details.

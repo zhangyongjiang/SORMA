@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+	<Button  
+		android:id="@+id/deleteBtn"
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content" 
+	    android:text="Delete"
+	    android:layout_alignParentTop="true"
+	    android:layout_alignParentLeft="true"
+	    />
+	<Button  
+		android:id="@+id/addPhoneBtn"
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content" 
+	    android:text="Add Phone"
+	    android:layout_alignParentTop="true"
+	    android:layout_toRightOf="@+id/deleteBtn"
+	    />
+	<Button  
+		android:id="@+id/saveBtn"
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content" 
+	    android:text="Save"
+	    android:layout_alignParentTop="true"
+	    android:layout_toRightOf="@+id/addPhoneBtn"
+	    />
+	<EditText
+		android:id="@+id/displayName"
+		android:layout_marginTop="16px"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" 
+	    android:layout_below="@+id/saveBtn"
+	/>
+	<TextView 
+		android:id="@+id/phoneListLabel"
+		android:layout_marginTop="20px"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" 
+	    android:layout_below="@+id/displayName"
+	    android:text="Phone Numbers:"
+	/>
+	<LinearLayout 
+		android:id="@+id/phoneListView"
+		android:orientation="vertical"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="match_parent" 
+	    android:layout_alignParentBottom="true"
+	    android:layout_below="@+id/phoneListLabel"
+		/>
+</RelativeLayout>

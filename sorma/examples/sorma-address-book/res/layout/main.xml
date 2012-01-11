@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+	<Button  
+		android:id="@+id/importBtn"
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content" 
+	    android:text="Import"
+	    android:layout_alignParentTop="true"
+	    android:layout_alignParentLeft="true"
+	    />
+	<Button  
+		android:id="@+id/deleteAllBtn"
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content" 
+	    android:text="Delete All"
+	    android:layout_alignParentTop="true"
+	    android:layout_toRightOf="@+id/importBtn"
+	    />
+	<Button  
+		android:id="@+id/addBtn"
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content" 
+	    android:text="Add"
+	    android:layout_alignParentTop="true"
+	    android:layout_toRightOf="@+id/deleteAllBtn"
+	    />
+	<Button  
+		android:id="@+id/dbBrowserBtn"
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content" 
+	    android:text="DB Browser"
+	    android:layout_alignParentTop="true"
+	    android:layout_toRightOf="@+id/addBtn"
+	    />
+	<ListView 
+		android:id="@+id/contactListView"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="match_parent" 
+	    android:layout_alignParentBottom="true"
+	    android:layout_below="@+id/addBtn"
+		/>
+</RelativeLayout>

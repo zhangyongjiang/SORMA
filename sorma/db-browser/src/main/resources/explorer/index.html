@@ -1,0 +1,93 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="jquery/mobile/jquery.mobile-1.0a4.1.min.css" />
+	<script type="text/javascript" src='jquery/jquery-1.5.2.min.js'></script>
+    <script type="text/javascript" src="jquery/mobile/jquery.mobile-1.0a4.1.min.js"></script>
+	<script type="text/javascript" src='json2.js'></script>
+	<script type="text/javascript">
+	    function Database(data) {
+	    	this.tables = new Array();
+            if(data.list != null || data.list.length > 0) {
+	            for(var i=0; i<data.list.length; i++) {
+	            	if(data.list[i].type == 'table') {
+		                var table = new Table(data.list[i]);
+		                this.tables.push(table);
+	            	}
+	            }
+	        }
+	    }
+	    function dbq(){
+        	var tableUrl = "/tables/dbquery.html";
+	    	$.ajax({
+	    		url : tableUrl,
+                complete : function(transport) {
+                    if (transport.status == 200) {
+                    	window.location = tableUrl;
+                    }
+                }
+            });
+	    }
+	    
+	    function Table(data) {
+            this.name = data.name;
+            this.tableName = data.tableName;
+            this.sql = data.sql;
+	    }
+	    
+	    Table.prototype.html = function() {
+	        if(false) {	    
+		    	var html = '<div style="margin:10px;float:left;width:200px;">'; 
+		    	html += '<a style="text-decoration:none;" href="javascript:void(0)" onclick="loadTable(\'' + this.tableName + '\')">' + this.tableName + '</a>';
+		    	// html += '<p>' + this.sql + '</p>'
+		    	html += '</div>';
+		    	return html;
+	        }
+	        else {
+	            var html = '<li><a href="javascript:void(0)" onclick="loadTable(\'' + this.tableName + '\')">' + this.tableName + '</a></li>';
+	            return html;
+	        }
+	    }
+	    
+	    Database.prototype.html = function() {
+	    	if(this.tables.length == 0)
+	    		return "no table found";
+	    	
+	    	var html = "";
+	    	for(var i=0; i<this.tables.length; i++) {
+	    		html += this.tables[i].html();
+	    	}
+	    	return html;
+	    }
+	    
+	    $(document).ready(function(){
+            $.ajax({
+                url : "/db",
+                complete : function(transport) {
+                    if (transport.status == 200) {
+                        var database = new Database(JSON.parse(transport.responseText));
+        	            var html = '<li><a href="javascript:void(0)" onclick="loadTable(\'sqlite_master\')">sqlite_master</a></li>';
+                        $('#tables').html(database.html() + html);
+                        $("#tables").listview("refresh");
+                    } else {
+                        alert('Error: ' + transport.status + ", "
+                                + transport.responseText);
+                    }
+                }
+            });
+	    });
+        
+        function loadTable(tableName) {
+            window.location = "/db?from=" + tableName;
+        }
+	</script>
+</head>
+<body>
+<div data-role="page" data-theme="b" id="jqm-home">
+<h3>SORMA Data Browser</h3>
+<ul data-role="listview" id="tables">
+</ul>
+</div>
+
+</body>
+</html>
